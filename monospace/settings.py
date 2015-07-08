@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'monospace_editor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'monospace.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'monospace',
+        'NAME': 'monospace_editor',
         'USER': os.environ.get('DB_USR'),
         'PASSWORD': os.environ.get('DB_PASSWD'),
         'HOST': os.environ.get('DB_HOST'),

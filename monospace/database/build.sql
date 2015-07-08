@@ -1,4 +1,4 @@
-CREATE DATABASE `monospace`;
+CREATE DATABASE `monospace_editor`;
 CREATE TABLE  `monospace`.`users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
