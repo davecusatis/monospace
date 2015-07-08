@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from rest_framework import routers
+from monospace_editor.views import UserViewSet
+
+router = routers.SimpleRouter()
+router.register(r'users', UserViewSet)
 
 urlpatterns = [
+    url(r'^api/v0/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url('^.*$', IndexView.as_view(), name='index'),
 ]
