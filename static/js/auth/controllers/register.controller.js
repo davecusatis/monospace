@@ -4,7 +4,6 @@
 (function(){
     'use strict';
 
-
     angular
         .module('monospace.authentication.controllers')
         .controller('RegisterController', RegisterController)
