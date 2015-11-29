@@ -26,7 +26,12 @@
          */
 
         var Authentication = {
-            register: register
+            register: register,
+            login: login,
+            isAuthenticated: isAuthenticated,
+            setAuthenticatedAccount: setAuthenticatedAccount,
+            getAuthenticatedAccount: getAuthenticatedAccount,
+            unauthenticate: unauthenticate
         };
         return Authentication;
 
@@ -41,6 +46,42 @@
                 email: email,
                 password: password
             });
+        }
+
+        function login(email, password) {
+            return $http.post('/api/v1/auth/login', {
+                email: email,
+                password: password
+            }).then();
+
+            function loginSuccessFn(data, status, headers, config) {
+                Authentication.setAuthenticatedAccount(data.data);
+                window.location = '/';
+            }
+
+            function loginErrorFn(data, status, headers, config) {
+                console.error('bad');
+                window.location('/login'); //TODO: maybe this needs to go
+            }
+        }
+
+        function getAuthenticatedAccount(){
+            if(!$cookies.authenticatedAccount){
+                return;
+            }
+
+            return JSON.parse($cookies.authenticatedAccount);
+        }
+
+        function setAuthenticatedAccount(account) {
+            $cookies.authenticatedAccount = JSON.stringify(account);
+        }
+        function isAuthenticated(){
+            return !!$cookies.authenticatedAccount;
+        }
+
+        function unauthenticate(){
+            delete $cookies.authenticatedAccount;
         }
     }
 })();

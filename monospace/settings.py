@@ -111,3 +111,33 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     '/static/templates'
 )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/debug.log', #TODO: change this path
+            },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        }
+        },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'filters': [],             # <-- this line
+            'propagate': True,
+            'level':'DEBUG',
+            },
+        'monospace_editor': {
+            'handlers':['file', 'console'],
+            'filters': [],             # <-- this line
+            'propagate': True,
+            'level':'DEBUG',
+            },
+        },
+}

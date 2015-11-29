@@ -27,6 +27,7 @@
         function register(){
             console.log("now registering");
             Authentication.register(vm.email, vm.password);
+
         }
     }
 
