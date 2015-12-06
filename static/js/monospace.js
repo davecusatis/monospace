@@ -9,7 +9,8 @@
         .module('monospace', [
             'monospace.authentication',
             'monospace.routes',
-            'monospace.config'
+            'monospace.config',
+            'monospace.layout',
         ]);
 
     angular

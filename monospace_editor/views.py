@@ -12,7 +12,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 
 class IndexView(TemplateView):
@@ -75,3 +75,13 @@ class LoginView(views.APIView):
                 'status': 'Unauthorized',
                 'message': 'This account is disabled'
             }, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class LogoutView(views.APIView):
+#todo: figure out perm classes
+#     permission_classes = (permissions.IsAuthenticated,)
+
+    @staticmethod
+    def post(request, format=None):
+        logout(request)
+        return Response({}, status=status.HTTP_204_NO_CONTENT)

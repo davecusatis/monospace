@@ -28,6 +28,7 @@
         var Authentication = {
             register: register,
             login: login,
+            logout: logout,
             isAuthenticated: isAuthenticated,
             setAuthenticatedAccount: setAuthenticatedAccount,
             getAuthenticatedAccount: getAuthenticatedAccount,
@@ -80,6 +81,23 @@
                 window.location('/login'); //TODO: maybe this needs to go
             }
         }
+
+        function logout(){
+            return $http.post('/api/v0/auth/logout/')
+                .then(logoutSuccess, logoutError);
+
+            function logoutSuccess(data, status, headers, config){
+                Authentication.unauthenticate();
+
+                window.location = '/login';
+            }
+
+            function logoutError(data, status, headers, config){
+                console.log("catastrophe");
+            }
+        }
+
+
 
         function getAuthenticatedAccount(){
             if(!$cookies.authenticatedAccount){

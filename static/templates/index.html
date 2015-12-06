@@ -9,6 +9,10 @@
 <span>monospace</span>
 <span><a href="register">register</a></span>
 
+<!--<span ng-if="vm.isAuthenticated()">-->
+<span>
+    <a ng-controller="NavbarController as vm" href="javascript:void(0)" ng-click="vm.logout()">logout</a>
+</span>
 <hr>
 <div class="container-fluid">
     <div class="row">

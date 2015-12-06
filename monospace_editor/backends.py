@@ -12,6 +12,7 @@ class MonospaceAuthBackend(ModelBackend):
             user = User.objects.get(email=username)
             if user.check_password(password):
                 user.backend = AUTHENTICATION_BACKENDS[0]
+                user.is_authenticated = True
                 return user
         except User.DoesNotExist:
             return None
