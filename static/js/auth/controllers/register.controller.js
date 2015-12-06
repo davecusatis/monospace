@@ -19,6 +19,20 @@
 
         vm.register = register;
 
+        activate();
+
+        /**
+         * @name activate
+         * @desc actions to be performed when this controller is init
+         * @memberOf monospace.auth.controllers.LoginControllers
+         */
+        function activate(){
+            // disallow already reg users to reg
+            if (Authentication.isAuthenticated()){
+                $location.url('/');
+            }
+        }
+
         /**
          * @name register
          * @desc register new user

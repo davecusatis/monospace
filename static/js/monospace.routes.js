@@ -17,13 +17,14 @@
      */
 
     function config($routeProvider){
-        console.log(' in monospace routes\n');
-        console.log($routeProvider);
         $routeProvider.when('/register', {
             controller: 'RegisterController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/register.html'
-        //});
+        }).when('/login', {
+            controller: 'LoginController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/login.html'
         }).otherwise('/');
     }
 })();

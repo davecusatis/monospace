@@ -141,3 +141,7 @@ LOGGING = {
             },
         },
 }
+
+AUTHENTICATION_BACKENDS = (
+    'monospace_editor.backends.MonospaceAuthBackend',
+)

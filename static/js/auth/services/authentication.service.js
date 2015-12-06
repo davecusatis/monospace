@@ -45,21 +45,37 @@
             return $http.post('/api/v0/users/', {
                 email: email,
                 password: password
-            });
+            }).then(registerSuccess, registerError);
+
+            /**
+             * @name reg success
+             * @desc callback that logs a user in after reg
+             */
+            function registerSuccess(data, status, headers, config){
+                Authentication.login(email, password);
+            }
+
+            /**
+             * @name registerError
+             * @desc redirect to index
+             */
+            function registerError(data, status, headers, config){
+                console.error('bad news');
+            }
         }
 
         function login(email, password) {
-            return $http.post('/api/v1/auth/login', {
+            return $http.post('/api/v0/auth/login/', {
                 email: email,
                 password: password
-            }).then();
+            }).then(loginSuccess, loginError);
 
-            function loginSuccessFn(data, status, headers, config) {
+            function loginSuccess(data, status, headers, config) {
                 Authentication.setAuthenticatedAccount(data.data);
                 window.location = '/';
             }
 
-            function loginErrorFn(data, status, headers, config) {
+            function loginError(data, status, headers, config) {
                 console.error('bad');
                 window.location('/login'); //TODO: maybe this needs to go
             }

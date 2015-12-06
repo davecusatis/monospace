@@ -1,0 +1,21 @@
+<div>
+    <div><h1>Login</h1></div>
+    <div>
+        <form role="form" ng-submit="vm.login()">
+            <div ng-show="error" ng-bind="error"></div>
+            <div>
+                <label for="login__email">email</label>
+                <input type="text" id="login__email" ng-model="vm.email" placeholder="dick@test.com"/>
+            </div>
+
+            <div>
+                <label for="login__password">password</label>
+                <input type="text" id="login__password" ng-model="vm.password" placeholder="*****"/>
+            </div>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

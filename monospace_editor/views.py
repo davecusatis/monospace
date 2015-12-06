@@ -6,12 +6,13 @@ from rest_framework.response import Response
 from monospace_editor.models import User
 from monospace_editor.permissions import IsAccountOwner
 from monospace_editor.serializers import UserSerializer
+from monospace_editor.backends import MonospaceAuthBackend
 
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login
 
 
 class IndexView(TemplateView):
@@ -50,12 +51,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class LoginView(views.APIView):
-    def post(self, request, format=None):
-        data = json.loads(request.body)
-        email = data.get('email', None)
-        password = data.get('password', None)
+    @staticmethod
+    def post(request, format=None):
+        backend = MonospaceAuthBackend()
+        data = request.data
+        email = data['email']
+        password = data['password']
 
-        user = authenticate(email=email, password=password)
+        user = backend.authenticate(email, password)
 
         if user is not None:
             if user.is_active:

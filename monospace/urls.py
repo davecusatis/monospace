@@ -24,6 +24,5 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     url(r'^api/v0/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/v0/auth/login/$', LoginView.as_view(), name='login'),
     #url('^.*$', IndexView.as_view(), name='index'),
 ]
