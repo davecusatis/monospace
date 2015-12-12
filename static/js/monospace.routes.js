@@ -25,6 +25,10 @@
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/login.html'
+        }).when('/editor', {
+            controller: 'EditorController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/editor.html'
         }).otherwise('/');
     }
 })();

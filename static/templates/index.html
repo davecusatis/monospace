@@ -3,7 +3,7 @@
 <head>
     <title>monospace</title>
     <base href="/" />
-
+    {% include 'js.html' %}
 </head>
 
 <body>
@@ -11,11 +11,13 @@
     <span>monospace</span>
     <span><a href="register">register</a></span>
 
-    <span ng-if="vm.isAuthenticated()">
+    <!--<span ng-if="vm.isAuthenticated()">-->
+    <span>
         <a href="javascript:void(0)" ng-click="vm.logout()">logout</a>
     </span>
 
-    <span ng-if="!vm.isAuthenticated()">
+    <!--<span ng-if="!vm.isAuthenticated()">-->
+    <span>
         <a href="login">login</a>
     </span>
 </div>
@@ -27,13 +29,5 @@
     </div>
 </div>
 
-<div ng-controller="LayoutController as vm">
-    <div ng-if="vm.isAuthenticated()">
-        {% include 'main.html' %}
-    </div>
-</div>
-
-
-{% include 'js.html' %}
 </body>
 </html>

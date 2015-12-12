@@ -9,15 +9,27 @@
         .module('monospace.editor.controllers')
         .controller('EditorController', EditorController);
 
-    EditorController.$inject = ['$scope', 'Authentication'];
+    EditorController.$inject = ['$scope', '$location', 'Authentication', 'EditorService'];
 
     /**
      * @namespace EditorController
      */
-    function EditorController($scope, Authentication) {
+    function EditorController($scope, $location, Authentication, EditorService) {
         var vm = this;
-
         vm.save = save;
+
+        activate()
+
+        /**
+         * @name activate
+         * @desc actions to be performed when this controller is init
+         * @memberOf monospace.editor.controllers.EditorController
+         */
+        function activate(){
+            if (!Authentication.isAuthenticated()){
+                $location.url('/');
+            }
+        }
 
         /**
          * @name save
@@ -25,12 +37,7 @@
          * @memberOf monospace.editor.controllers.EditorController
          */
         function save(file){
-            $.post('/v0/save_script',
-                {
-                    'script': file,
-                    'user': Authentication.getAuthenticatedAccount()
-                }
-            );
+            EditorService.save(file, Authentication.getAuthenticatedAccount());
         }
     }
 })();
