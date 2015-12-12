@@ -29,15 +29,20 @@
         /**
          * @name activate
          * @desc actions to be performed when this controller is init
-         * @memberOf monospace.auth.controllers.LoginControllers
+         * @memberOf monospace.auth.controllers.LoginController
          */
         function activate(){
             // if user is auth, kick em out
             if (Authentication.isAuthenticated()){
-                $location.url('/');
+                $location.url('/editor');
             }
         }
 
+        /**
+         * @name login
+         * @desc logs a user in
+         * @memberOf monospace.auth.controllers.LoginController
+         */
         function login(){
             Authentication.login(vm.email, vm.password);
         }

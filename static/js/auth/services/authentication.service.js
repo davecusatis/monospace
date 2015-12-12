@@ -65,6 +65,13 @@
             }
         }
 
+        /**
+         * @name login
+         * @desc hits the api to login
+         * @param email
+         * @param password
+         * @returns {*}
+         */
         function login(email, password) {
             return $http.post('/api/v0/auth/login/', {
                 email: email,
@@ -73,7 +80,7 @@
 
             function loginSuccess(data, status, headers, config) {
                 Authentication.setAuthenticatedAccount(data.data);
-                window.location = '/';
+                window.location = '/editor';
             }
 
             function loginError(data, status, headers, config) {
@@ -82,6 +89,11 @@
             }
         }
 
+        /**
+         * @name logout
+         * @desc hits the logout api
+         * @returns {*}
+         */
         function logout(){
             return $http.post('/api/v0/auth/logout/')
                 .then(logoutSuccess, logoutError);
@@ -97,8 +109,11 @@
             }
         }
 
-
-
+        /**
+         * @name getAuthenticatedAccount
+         * @desc returns auth token and user info
+         * @returns {*}
+         */
         function getAuthenticatedAccount(){
             if(!$cookies.authenticatedAccount){
                 return;
@@ -107,13 +122,28 @@
             return JSON.parse($cookies.authenticatedAccount);
         }
 
+        /**
+         * @name setAuthenticatedAccount
+         * @desc sets authtoken in cookies
+         * @param account
+         */
         function setAuthenticatedAccount(account) {
             $cookies.authenticatedAccount = JSON.stringify(account);
         }
+
+        /**
+         * @name isAuthenticated
+         * @desc returns true is user is authenticated, false otherwise
+         * @returns {boolean}
+         */
         function isAuthenticated(){
             return !!$cookies.authenticatedAccount;
         }
 
+        /**
+         * @name unauthenticate
+         * @desc remove the auth token
+         */
         function unauthenticate(){
             delete $cookies.authenticatedAccount;
         }
