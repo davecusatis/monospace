@@ -7,22 +7,22 @@
 
     angular
         .module('monospace.layout.controllers')
-        .controller('NavbarController', NavbarController);
+        .controller('LayoutController', LayoutController);
 
-    NavbarController.$inject = ['$scope', 'Authentication'];
+    LayoutController.$inject = ['$scope', 'Authentication'];
 
     /**
-     * @namespace NavbarController
+     * @namespace LayoutController
      */
-    function NavbarController($scope, Authentication) {
+    function LayoutController($scope, Authentication) {
         var vm = this;
 
         vm.logout = logout;
-
+        vm.isAuthenticated = Authentication.isAuthenticated;
         /**
          * @name logout
          * @desc logs out user
-         * @memberOf monospace.layout.controllers.NavbarController
+         * @memberOf monospace.layout.controllers.LayoutController
          */
         function logout(){
             Authentication.logout();

@@ -21,3 +21,4 @@ class UserSerializer(serializers.ModelSerializer):
             # confirm_password = validated_data.get('salt')
 
             return instance
+

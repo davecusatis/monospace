@@ -1,4 +1,4 @@
-from django.db import models, DataError
+from django.db import models, DataError, connection
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 import logging
@@ -12,7 +12,6 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have valid email.')
 
-        # todo: error check for exisiting email.
         email = self.normalize_email(email)
         # exists = self.objects.filter(email=email)
         # if not exists:
@@ -31,8 +30,15 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    def get_short_name(self):
+        return self.email
+
+    def get_full_name(self):
+        return self.email
+
     email = models.TextField()
     objects = UserManager()
+
     def __str__(self):
         return self.email
 
@@ -43,3 +49,17 @@ class UserScripts(models.Model):
 
     def __str__(self):
         return self.script_text
+
+
+class UserScriptsManager(models.Manager):
+    def update_script(self, user, script):
+        pass
+
+    def create(self, user, script):
+        if not user or not script:
+            raise ValueError('Invalid script or user.')
+
+        #todo: if validate script here
+        script = UserScripts(user=user, script=script)
+        script.save()
+        return script
