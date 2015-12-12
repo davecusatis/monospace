@@ -3,22 +3,36 @@
 <head>
     <title>monospace</title>
     <base href="/" />
+
 </head>
 
 <body>
-<span>monospace</span>
-<span><a href="register">register</a></span>
+<div ng-controller="LayoutController as vm">
+    <span>monospace</span>
+    <span><a href="register">register</a></span>
 
-<!--<span ng-if="vm.isAuthenticated()">-->
-<span>
-    <a ng-controller="NavbarController as vm" href="javascript:void(0)" ng-click="vm.logout()">logout</a>
-</span>
+    <span ng-if="vm.isAuthenticated()">
+        <a href="javascript:void(0)" ng-click="vm.logout()">logout</a>
+    </span>
+
+    <span ng-if="!vm.isAuthenticated()">
+        <a href="login">login</a>
+    </span>
+</div>
+
 <hr>
 <div class="container-fluid">
     <div class="row">
         <div class="ng-view"></div>
     </div>
 </div>
+
+<div ng-controller="LayoutController as vm">
+    <div ng-if="vm.isAuthenticated()">
+        {% include 'main.html' %}
+    </div>
+</div>
+
 
 {% include 'js.html' %}
 </body>

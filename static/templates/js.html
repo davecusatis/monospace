@@ -1,15 +1,22 @@
 <!--{%load static from staticfiles %}-->
-<!--&lt;!&ndash;<script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>&ndash;&gt;-->
-<!--&lt;!&ndash;<script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script>&ndash;&gt;-->
-<!--<script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/material.js' %}"></script>-->
-<!--<script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/ripples.js' %}"></script>-->
-<!--<script type="text/javascript" src="{% static 'bower_components/underscore/underscore.js' %}"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" src="{% static 'lib/jquery/dist/jquery.js' %}"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script type="text/javascript" src="{% static 'lib/bootstrap/dist/js/bootstrap.js' %}"></script>&ndash;&gt;-->
+<!--<script type="text/javascript" src="{% static 'lib/bootstrap-material-design/dist/js/material.js' %}"></script>-->
+<!--<script type="text/javascript" src="{% static 'lib/bootstrap-material-design/dist/js/ripples.js' %}"></script>-->
+<!--<script type="text/javascript" src="{% static 'lib/underscore/underscore.js' %}"></script>-->
 
-<script type="text/javascript" src="{% static 'bower_components/angular/angular.js' %}"></script>
-<script type="text/javascript" src="{% static 'bower_components/angular-route/angular-route.js' %}"></script>
-<script type="text/javascript" src="{% static 'bower_components/angular-cookies/angular-cookies.js' %}"></script>
-
-<script type="text/javascript" src="{% static 'bower_components/ngDialog/js/ngDialog.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/angular/angular.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/angular-route/angular-route.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/angular-cookies/angular-cookies.js' %}"></script>
+<link rel="stylesheet" href="{% static 'lib/codemirror-5.9/lib/codemirror.css' %}">
+<script type="text/javascript" src="{% static 'lib/codemirror-5.9/lib/codemirror.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/codemirror-5.9/addon/edit/matchbrackets.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/codemirror-5.9/addon/comment/continuecomment.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/codemirror-5.9/addon/comment/comment.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/codemirror-5.9/mode/javascript/javascript.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/jquery/dist/jquery.js"' %}></script>
+<script type="text/javascript" src="{% static 'js/three.js' %}"></script>
+<script type="text/javascript" type="text/javascript" src="{% static 'lib/ngDialog/js/ngDialog.js' %}"></script>
 
 <script type="text/javascript" src="{% static 'js/monospace.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/monospace.config.js' %}"></script>
@@ -18,5 +25,8 @@
 <script type="text/javascript" src="{% static 'js/auth/services/authentication.service.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/auth/controllers/register.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/auth/controllers/login.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/auth/controllers/auth.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/layout/layout.module.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/layout/controllers/navbar.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/layout/controllers/layout.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/editor/editor.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/editor/controllers/editor.controller.js' %}"></script>
