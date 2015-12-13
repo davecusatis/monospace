@@ -7,7 +7,8 @@
     angular
         .module('monospace.editor',[
             'monospace.editor.controllers',
-            'monospace.editor.services'
+            'monospace.editor.services',
+            'monospace.editor.directives'
         ]);
 
     angular
@@ -15,4 +16,7 @@
 
     angular
         .module('monospace.editor.services', []);
+
+    angular
+        .module('monospace.editor.directives', []);
 })();
