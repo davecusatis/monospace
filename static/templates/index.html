@@ -4,9 +4,17 @@
     <title>monospace</title>
     <base href="/" />
     {% include 'js.html' %}
+    <link rel="stylesheet" href="../css/monospace.css"/>
+    <style>
+        .container-fluid{
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+    </style>
 </head>
 
 <body>
+<!-- todo: make this directive -->
 <div ng-controller="LayoutController as vm">
     <span>monospace</span>
     <span><a href="register">register</a></span>

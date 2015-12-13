@@ -11,7 +11,8 @@
             'monospace.routes',
             'monospace.config',
             'monospace.layout',
-            'monospace.editor'
+            'monospace.editor',
+            'monospace.display'
         ]);
 
     angular

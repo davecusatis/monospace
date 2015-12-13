@@ -23,7 +23,7 @@
             };
 
             var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-                mode: "javascript"
+                mode: "clike"
             });
         }
 
@@ -36,9 +36,6 @@
             controller: 'EditorController',
             controllerAs: 'vm',
             restrict: 'E',
-            scope: {
-                posts: '='
-            },
             templateUrl: '/static/templates/editor_directive.html',
             link: link
         };
