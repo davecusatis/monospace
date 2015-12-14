@@ -13,10 +13,6 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have valid email.')
 
         email = self.normalize_email(email)
-        # exists = self.objects.filter(email=email)
-        # if not exists:
-        #     raise DataError('User exists already.')
-
         user = self.model(email=email)
         user.password = make_password(password, hasher='sha1')
         print(user.password + ', ' + user.email, file=sys.stderr)
@@ -43,23 +39,34 @@ class User(AbstractBaseUser):
         return self.email
 
 
-class UserScripts(models.Model):
-    user = models.ForeignKey(User)
-    script_text = models.TextField()
-
-    def __str__(self):
-        return self.script_text
-
-
 class UserScriptsManager(models.Manager):
     def update_script(self, user, script):
         pass
 
-    def create(self, user, script):
+    @staticmethod
+    def create_or_update(user, script):
         if not user or not script:
             raise ValueError('Invalid script or user.')
 
         #todo: if validate script here
-        script = UserScripts(user=user, script=script)
-        script.save()
+
+        user_obj = User.objects.filter(email=user).first()
+        script_to_save = UserScript.objects.filter(user_id=user_obj.id).first()
+
+        if script_to_save:
+            script_to_save.script_text = script
+        else:
+            script_to_save = UserScript(user=user_obj, script_text=script)
+
+        script_to_save.save()
         return script
+
+
+class UserScript(models.Model):
+    user = models.ForeignKey(User)
+    script_text = models.TextField()
+    objects = UserScriptsManager()
+
+    def __str__(self):
+        return self.script_text
+

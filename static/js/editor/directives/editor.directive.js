@@ -15,10 +15,10 @@
 
     function editor(){
 
-        function link(scope, element, attrs){
+        function link(scope, element, attrs, ctrl){
             CodeMirror.commands.save = function(instance){
                 var file = instance.getValue();
-                vm.save(file);
+                ctrl.save(file);
 
             };
 

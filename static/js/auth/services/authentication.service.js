@@ -79,7 +79,7 @@
             }).then(loginSuccess, loginError);
 
             function loginSuccess(data, status, headers, config) {
-                Authentication.setAuthenticatedAccount(data.data);
+                Authentication.setAuthenticatedAccount(data.config.data.email);
                 window.location = '/editor';
             }
 

@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework import routers
-from monospace_editor.views import UserViewSet, IndexView, LoginView, LogoutView
+from monospace_editor.views import UserViewSet, IndexView, LoginView, LogoutView, \
+    ScriptView
 
 router = routers.SimpleRouter()
 router.register(r'users', UserViewSet)
@@ -26,5 +27,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/v0/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v0/auth/logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^api/v0/save_script/$', ScriptView.as_view(), name='save_script'),
     url('^.*$', IndexView.as_view(), name='index')
 ]

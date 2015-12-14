@@ -38,7 +38,7 @@
          * @param user
          */
         function save(user_script, user){
-            $http.post('/v0/save_script',
+            $http.post('/api/v0/save_script/',
                 {
                     'script': user_script,
                     'user': user
