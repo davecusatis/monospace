@@ -25,6 +25,10 @@
             var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
                 mode: "clike"
             });
+
+            ctrl.load().success(function (data, status, headers, config){
+                editor.getDoc().setValue(data.script)
+            });
         }
 
         /**

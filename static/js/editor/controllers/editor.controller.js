@@ -17,7 +17,7 @@
     function EditorController($scope, $location, Authentication, EditorService) {
         var vm = this;
         vm.save = save;
-
+        vm.load = load;
         activate()
 
         /**
@@ -38,6 +38,10 @@
          */
         function save(file){
             EditorService.save(file, Authentication.getAuthenticatedAccount());
+        }
+
+        function load(){
+            return EditorService.load(Authentication.getAuthenticatedAccount());
         }
     }
 })();

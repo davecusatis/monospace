@@ -26,7 +26,8 @@
          */
 
         var EditorService = {
-            save: save
+            save: save,
+            load: load
         };
         return EditorService;
 
@@ -61,6 +62,13 @@
             function scriptSaveFailure(){
                 console.log('Unable to save script');
             }
+        }
+
+
+        function load(user){
+            return $http.get('api/v0/load_script/' + user + '/', {});
+
+
         }
 
     }

@@ -61,6 +61,18 @@ class UserScriptsManager(models.Manager):
         script_to_save.save()
         return script
 
+    def get_script_for_user(self, user):
+        if not user:
+            raise ValueError('Invalid user.')
+
+        user_obj = User.objects.filter(email=user).first()
+        if user_obj:
+            script = UserScript.objects.filter(user_id=user_obj.id).first()
+            if script:
+                return script
+
+        return None
+
 
 class UserScript(models.Model):
     user = models.ForeignKey(User)

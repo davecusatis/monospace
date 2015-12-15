@@ -88,8 +88,7 @@ class LogoutView(views.APIView):
 
 
 class ScriptView(views.APIView):
-    @staticmethod
-    def post(request, format=None):
+    def post(self, request, format=None):
         if 'script' in request.data or 'user' in request.data:
             script = request.data['script']
             user = request.data['user']
@@ -99,11 +98,17 @@ class ScriptView(views.APIView):
             UserScript.objects.create_or_update(user, script)
             return Response({}, status=status.HTTP_201_CREATED)
 
-
-            UserScript.objects.update(id=request.data['script']['id'])
-            return Response({}, status=status.HTTP_202_ACCEPTED)
-
         return Response({
             'status': 'Unauthorized',
             'message': 'Could not create or save script'
         }, status=status.HTTP_403_FORBIDDEN)
+
+class ScriptDetailsView(views.APIView):
+    def get(self, request, user_email, format=None):
+        script = UserScript.objects.get_script_for_user(user_email)
+        if script:
+            return Response({
+                'script': script.script_text
+            }, status=status.HTTP_200_OK)
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
