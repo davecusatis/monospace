@@ -1,0 +1,13 @@
+<div>
+    <span>monospace</span>
+    <span><a href="register">register</a></span>
+
+    <span ng-if="vm.isAuthenticated()">
+        <a href="javascript:void(0)" ng-click="vm.logout()">logout</a>
+    </span>
+
+    <span ng-if="!vm.isAuthenticated()">
+        <a href="login">login</a>
+    </span>
+</div>
+<hr>

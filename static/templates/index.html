@@ -14,23 +14,7 @@
 </head>
 
 <body>
-<!-- todo: make this directive -->
-<div ng-controller="LayoutController as vm">
-    <span>monospace</span>
-    <span><a href="register">register</a></span>
-
-    <!--<span ng-if="vm.isAuthenticated()">-->
-    <span>
-        <a href="javascript:void(0)" ng-click="vm.logout()">logout</a>
-    </span>
-
-    <!--<span ng-if="!vm.isAuthenticated()">-->
-    <span>
-        <a href="login">login</a>
-    </span>
-</div>
-
-<hr>
+<navbar></navbar>
 <div class="container-fluid">
     <div class="row">
         <div class="ng-view"></div>

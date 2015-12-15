@@ -78,8 +78,8 @@ class LoginView(views.APIView):
 
 
 class LogoutView(views.APIView):
-#todo: figure out perm classes
-#     permission_classes = (permissions.IsAuthenticated,)
+    # todo: figure out perm classes
+    #     permission_classes = (permissions.IsAuthenticated,)
 
     @staticmethod
     def post(request, format=None):
@@ -102,6 +102,7 @@ class ScriptView(views.APIView):
             'status': 'Unauthorized',
             'message': 'Could not create or save script'
         }, status=status.HTTP_403_FORBIDDEN)
+
 
 class ScriptDetailsView(views.APIView):
     def get(self, request, user_email, format=None):
