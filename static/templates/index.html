@@ -13,10 +13,12 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #231F20; color: #ffff00;">
+{% load staticfiles %}
 <navbar></navbar>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
+        <img class="img-responsive" style="margin: 0 auto;" src="{% static 'img/monospace.png' %}"/>
         <div class="ng-view"></div>
     </div>
 </div>

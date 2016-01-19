@@ -1,13 +1,16 @@
-<div>
-    <span>monospace</span>
-    <span><a href="register">register</a></span>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a  href="/" class="navbar-brand">monospace</a>
+        </div>
+        <a ng-click="vm.post_to_monoserv()">send the biz to CB</a>
+        <div class="collapse navbar-collapse" id="">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!vm.isAuthenticated()"><a href="register"><span>Register</span></a></li>
+                <li ng-if="!vm.isAuthenticated()"><a href="login"><span>Login</span></a></li>
+                <li ng-if="vm.isAuthenticated()"><a href="javascript:void(0)" ng-click="vm.logout()"><span>Logout</span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
 
-    <span ng-if="vm.isAuthenticated()">
-        <a href="javascript:void(0)" ng-click="vm.logout()">logout</a>
-    </span>
-
-    <span ng-if="!vm.isAuthenticated()">
-        <a href="login">login</a>
-    </span>
-</div>
-<hr>
+</nav>

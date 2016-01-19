@@ -18,7 +18,7 @@
         var vm = this;
         vm.save = save;
         vm.load = load;
-        activate()
+        activate();
 
         /**
          * @name activate

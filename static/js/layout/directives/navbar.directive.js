@@ -14,10 +14,6 @@
         .directive('navbar', navbar);
 
     function navbar(){
-        //function link(scope, element, attrs, ctrl){
-        //
-        //}
-
         /**
          * @name directive
          * @desc directive for navbar
@@ -27,8 +23,7 @@
             controller: 'LayoutController',
             controllerAs: 'vm',
             restrict: 'E',
-            templateUrl: '/static/templates/navbar_directive.html',
-            //link: link
+            templateUrl: '/static/templates/navbar_directive.html'
         };
         return directive;
     }
