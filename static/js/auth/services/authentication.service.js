@@ -115,11 +115,11 @@
          * @returns {*}
          */
         function getAuthenticatedAccount(){
-            if(!$cookies.authenticatedAccount){
+            if(!$cookies.get('authenticatedAccount')){
                 return;
             }
 
-            return JSON.parse($cookies.authenticatedAccount);
+            return JSON.parse($cookies.get('authenticatedAccount'));
         }
 
         /**
@@ -128,7 +128,7 @@
          * @param account
          */
         function setAuthenticatedAccount(account) {
-            $cookies.authenticatedAccount = JSON.stringify(account);
+            $cookies.put('authenticatedAccount', JSON.stringify(account));
         }
 
         /**
@@ -137,7 +137,8 @@
          * @returns {boolean}
          */
         function isAuthenticated(){
-            return !!$cookies.authenticatedAccount;
+            console.log($cookies.authenticatedAccount);
+            return !!$cookies.get('authenticatedAccount');
         }
 
         /**
@@ -145,7 +146,7 @@
          * @desc remove the auth token
          */
         function unauthenticate(){
-            delete $cookies.authenticatedAccount;
+            delete $cookies.remove('authenticatedAccount');
         }
     }
 })();

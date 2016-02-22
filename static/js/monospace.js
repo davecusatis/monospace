@@ -2,6 +2,17 @@
  * Created by david on 8/3/15.
  */
 
+//helper to track installed modules
+(function(orig) {
+    angular.modules = [];
+    angular.module = function() {
+        if (arguments.length > 1) {
+            angular.modules.push(arguments[0]);
+        }
+        return orig.apply(null, arguments);
+    }
+})(angular.module);
+
 (function(){
     'use strict';
 
