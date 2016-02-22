@@ -1,10 +1,11 @@
-<!--{%load static from staticfiles %}-->
+<!--{% load staticfiles %}-->
+<script type="text/javascript" src="{% static 'lib/jquery/jquery-2.2.0.min.js' %}"></script>
+
 <!-- Angular files -->
 <script type="text/javascript" src="{% static 'lib/angular/angular.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/angular-route/angular-route.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/angular-cookies/angular-cookies.js' %}"></script>
 <!-- <script type="text/javascript" src="{% static 'lib/ngDialog/js/ngDialog.js' %}"></script> -->
-
 
 <!-- Monospace JS files -->
 <script type="text/javascript" src="{% static 'js/monospace.js' %}"></script>
@@ -28,6 +29,11 @@
 
 
 <!-- Libraries -->
+<!--<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!--<script type="text/javascript" src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>-->
 <link rel="stylesheet" href="{% static 'lib/codemirror/lib/codemirror.css' %}">
 <script type="text/javascript" src="{% static 'lib/codemirror/lib/codemirror.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/codemirror/addon/edit/matchbrackets.js' %}"></script>
@@ -36,6 +42,3 @@
 <script type="text/javascript" src="{% static 'lib/codemirror/mode/clike/clike.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/threejs/three.js' %}"></script>
 
-
-<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
-<!-- <script type="text/javascript" src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script> -->
