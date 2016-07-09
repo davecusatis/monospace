@@ -17,13 +17,8 @@
 
         function link(scope, element, attrs){
             var canvas = document.getElementById('canvas');
-            //canvas.appendChild(canvas);
-
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera( 75, 480/320, 0.1, 1000 );
-
-
-
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize( 480, 320 );
             canvas.appendChild( renderer.domElement );

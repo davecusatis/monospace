@@ -9,15 +9,17 @@
         .module('monospace.editor.controllers')
         .controller('EditorController', EditorController);
 
-    EditorController.$inject = ['$scope', '$location', 'Authentication', 'EditorService'];
+    EditorController.$inject = ['$scope', '$location', 'Authentication', 'EditorService', 'DisplayService'];
 
     /**
      * @namespace EditorController
      */
-    function EditorController($scope, $location, Authentication, EditorService) {
+    function EditorController($scope, $location, Authentication, EditorService, DisplayService) {
         var vm = this;
         vm.save = save;
         vm.load = load;
+        vm.connect = connect;
+        vm.start = start;
         activate();
 
         /**
@@ -42,6 +44,21 @@
 
         function load(){
             return EditorService.load(Authentication.getAuthenticatedAccount());
+        }
+
+        function post(file){
+            EditorService.save(file, Authentication.getAuthenticatedAccount());
+        }
+
+        function connect(websocket_url){
+            $scope.frames = [];
+            console.log("in thaaa mix");
+            vm.ws = DisplayService.connect(websocket_url);
+            vm.ws_connected = true;
+        }
+
+        function start(user_script){
+            DisplayService.send_start_request(vm.ws, user_script);
         }
     }
 })();

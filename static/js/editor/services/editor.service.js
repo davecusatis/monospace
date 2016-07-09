@@ -67,8 +67,6 @@
 
         function load(user){
             return $http.get('api/v0/load_script/' + user + '/', {});
-
-
         }
 
     }
