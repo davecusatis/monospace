@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/v0/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v0/auth/logout/$', LogoutView.as_view(), name='logout'),
+    # TODO: make these urls actually *restful*
     url(r'^api/v0/save_script/$', ScriptView.as_view(), name='save_script'),
     url(r'^api/v0/load_script/(?P<user_email>.+)/$', ScriptDetailsView.as_view(), name='load_script'),
     url('^.*$', IndexView.as_view(), name='index')

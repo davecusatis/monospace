@@ -137,7 +137,6 @@
          * @returns {boolean}
          */
         function isAuthenticated(){
-            console.log($cookies.authenticatedAccount);
             return !!$cookies.get('authenticatedAccount');
         }
 

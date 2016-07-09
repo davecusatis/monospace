@@ -9,12 +9,12 @@
         .module('monospace.display.controllers')
         .controller('DisplayController', DisplayController);
 
-    DisplayController.$inject = ['$scope', '$location', 'Authentication'];
+    DisplayController.$inject = ['$scope', '$location', 'Authentication', 'DisplayService'];
 
     /**
      * @namespace DisplayController
      */
-    function DisplayController($scope, $location, Authentication) {
+    function DisplayController($scope, $location, Authentication, DisplayService) {
         var vm = this;
         activate();
 

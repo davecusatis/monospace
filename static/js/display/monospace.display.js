@@ -7,7 +7,8 @@
     angular
         .module('monospace.display',[
             'monospace.display.controllers',
-            'monospace.display.directives'
+            'monospace.display.directives',
+            'monospace.display.services'
         ]);
 
     angular
@@ -15,4 +16,7 @@
 
     angular
         .module('monospace.display.directives', []);
+
+    angular
+        .module('monospace.display.services', []);
 })();

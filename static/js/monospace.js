@@ -10,7 +10,7 @@
             angular.modules.push(arguments[0]);
         }
         return orig.apply(null, arguments);
-    }
+    };
 })(angular.module);
 
 (function(){
