@@ -4,7 +4,8 @@
     <title>monospace</title>
     <base href="/" />
     {% include 'js.html' %}
-    <!--<link rel="stylesheet" type="text/css" href="../css/monospace.css"/>-->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" ng-href="{% static 'css/monospace.css' %}"/>
     <style>
         .container-fluid{
             margin-left: 5%;
@@ -14,14 +15,14 @@
 </head>
 
 <body style="background-color: #231F20; color: #ffff00;">
-{% load staticfiles %}
-<navbar></navbar>
-<div class="container">
-    <div class="row">
-        <img class="img-responsive" style="margin: 0 auto;" src="{% static 'img/monospace.png' %}"/>
-        <div class="ng-view"></div>
+
+    <navbar></navbar>
+    <div class="container">
+        <div class="row">
+            <img class="img-responsive" style="margin: 0 auto;" src="{% static 'img/monospace.png' %}"/>
+            <div ng-view class="view-animate"></div>
+        </div>
     </div>
-</div>
 
 </body>
 </html>

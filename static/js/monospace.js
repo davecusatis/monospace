@@ -23,7 +23,8 @@
             'monospace.config',
             'monospace.layout',
             'monospace.editor',
-            'monospace.display'
+            'monospace.display',
+            'ngAnimate'
         ]);
 
     angular
