@@ -12,6 +12,43 @@ body {
     color: #FFFF00;
 }
 
+.monospace_entry_form {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #909;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #909;
+}
+
+.monospace_form_input {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+}
+
+.monospace_form_submit {
+    border-radius: 0;
+    color: yellow;
+    background-color: #231F20;
+    border-color: #231F20;
+}
+
+.monospace_form_submit:hover {
+    background-color: darkgray;
+    color:yellow;
+    border-color: #231F20;
+}
 .view-animate.ng-leave.ng-leave-active {
     animation: fade-out 0.3s linear;
     -webkit-animation: fade-out 0.3s linear;
