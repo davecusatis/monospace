@@ -38,14 +38,17 @@ body {
     border-radius: 0;
 }
 
-.monospace_form_submit {
+.monospace_button {
     border-radius: 0;
     color: yellow;
-    background-color: #231F20;
+    background-color: rgba(255, 255, 255, 0.3);
     border-color: #231F20;
+    margin: 5em;
+    width: 10em;
+    height: 3em;
 }
 
-.monospace_form_submit:hover {
+.monospace_button:hover {
     background-color: darkgray;
     color:yellow;
     border-color: #231F20;
@@ -90,4 +93,15 @@ body {
 
 .navbar-default .navbar-nav>li>a {
     color: yellow;
+}
+
+.dots{
+    background: url(/static/img/dots.png) rgba(0,0,0,0.1);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.homepage_buttons {
+    text-align: center;
 }

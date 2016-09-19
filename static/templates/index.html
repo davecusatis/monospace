@@ -12,9 +12,17 @@
 <body style="background-color: #231F20; color: #ffff00;">
 
     <navbar></navbar>
+<!-- TODO: come back to dotz at some point
+    <section class="monospace-header">
+    <div class="dots"></div>
+        <img class="img-responsive" style="margin: 0 auto;" src="{% static 'img/monospace.png' %}"/>
+    </section>
+-->
     <div class="container">
         <div class="row">
             <img class="img-responsive" style="margin: 0 auto;" src="{% static 'img/monospace.png' %}"/>
+        </div>
+        <div class="row">
             <div ng-view class="view-animate"></div>
         </div>
     </div>

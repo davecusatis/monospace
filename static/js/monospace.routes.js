@@ -29,6 +29,8 @@
             controller: 'EditorController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/editor.html'
-        }).otherwise('/');
+        }).when('/', {
+            templateUrl: '/static/templates/buttons.html'
+        });
     }
 })();
